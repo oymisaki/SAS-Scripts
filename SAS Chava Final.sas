@@ -28,7 +28,7 @@ run;
 
 proc sql;
 	create table data as
-	select CUSIP, DATE, VOL, RET from 
+	select CUSIP, DATE, VOL / SHROUT as TO, RET from 
 	path.dsf as dsf
 	where dsf.CUSIP in (select CUSIP from records);
 quit;
